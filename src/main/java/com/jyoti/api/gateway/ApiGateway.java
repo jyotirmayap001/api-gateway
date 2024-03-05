@@ -16,7 +16,7 @@ public class ApiGateway {
 	@Bean
  	public RouteLocator routerBuilder(RouteLocatorBuilder routeLocatorBuilder){ 
         	return routeLocatorBuilder.routes() 
-                        .route("USER-SERVICE",r->r.path("/api/user/**") 
+                        .route("USER-DETAILS",r->r.path("/api/user/**") 
                                 .uri("http://3.27.215.114:32649/")).build(); 
     	}
 
