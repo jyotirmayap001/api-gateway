@@ -20,7 +20,7 @@ public class ApiGateway {
  	public RouteLocator routerBuilder(RouteLocatorBuilder routeLocatorBuilder){ 
         	return routeLocatorBuilder.routes() 
                         .route("USER-DETAILS",r->r.path("/api/user/**") 
-                                .uri("http://3.27.215.114:32649/")).build(); 
+                                .uri("http://3.27.215.114:31130/")).build(); 
     	}
 
 	//Reference for other available options of route configuration in spring-cloud gateway.
