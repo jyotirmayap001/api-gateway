@@ -35,9 +35,9 @@ public class ApiGateway {
                         		.and().method(HttpMethod.GET)
                                 .uri("http://54.206.61.156:31130/api/user/getUsers"))
                         
-                        .route("USER-DETAILS",r->r.path("/userOperations/getUsers")
+                        .route("USER-DETAILS",r->r.path("/userOperations/getUsers/{userid}")
                         		.and().method(HttpMethod.GET)
-                                .uri("http://54.206.61.156:31130/api/user/getUsers/{userid}"))
+                                .uri("http://54.206.61.156:31130/api/user/getUsers/"))
                         
                         .route("USER-DETAILS",r->r.path("/userOperations/getUsersWithPagination")
                         		.and().method(HttpMethod.GET)

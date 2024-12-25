@@ -1,4 +1,4 @@
 DockerBuildAndDeploy{
 	app_name= 'api-gateway'
-	docker_image_tag= 'dev.0.07'
+	docker_image_tag= 'dev.0.08'
 }
