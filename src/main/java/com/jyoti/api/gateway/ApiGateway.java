@@ -27,19 +27,19 @@ public class ApiGateway {
                         		.and().method(HttpMethod.POST)
                                 .uri("http://54.206.61.156:31130/api/user/saveUsers"))
                         
-                        .route("USER-DETAILS",r->r.path("/userOperations/saveMutipleUsers")
+                        .route("USER-DETAILS_MULTI_SAVE",r->r.path("/userOperations/saveMutipleUsers")
                         		.and().method(HttpMethod.POST)
                                 .uri("http://54.206.61.156:31130/api/user/saveMutipleUsers"))
                         
-                        .route("USER-DETAILS",r->r.path("/userOperations/getUsers")
+                        .route("USER-DETAILS_GET_USER",r->r.path("/userOperations/getUsers")
                         		.and().method(HttpMethod.GET)
                                 .uri("http://54.206.61.156:31130/api/user/getUsers"))
                         
-                        .route("USER-DETAILS",r->r.path("/userOperations/getUsers/{userid}")
+                        .route("USER-DETAILS_GET_SPECIFIED_USER",r->r.path("/userOperations/getUsers/{userid}")
                         		.and().method(HttpMethod.GET)
                                 .uri("http://54.206.61.156:31130/api/user/getUsers/"))
                         
-                        .route("USER-DETAILS",r->r.path("/userOperations/getUsersWithPagination")
+                        .route("USER-DETAILS_WITH_PAGINATION",r->r.path("/userOperations/getUsersWithPagination")
                         		.and().method(HttpMethod.GET)
                                 .uri("http://54.206.61.156:31130/api/user/getUsersByPagination"))
                         
