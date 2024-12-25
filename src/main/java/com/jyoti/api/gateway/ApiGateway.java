@@ -25,24 +25,23 @@ public class ApiGateway {
         	return routeLocatorBuilder.routes()
                         .route("USER-DETAILS",r->r.path("/userOperations/saveUsers")
                         		.and().method(HttpMethod.POST)
-                                .uri("http://13.236.136.227:31130/api/user/saveUsers"))
+                                .uri("http://54.206.61.156:31130/api/user/saveUsers"))
                         
                         .route("USER-DETAILS",r->r.path("/userOperations/saveMutipleUsers")
                         		.and().method(HttpMethod.POST)
-                                .uri("http://13.236.136.227:31130/api/user/saveMutipleUsers"))
+                                .uri("http://54.206.61.156:31130/api/user/saveMutipleUsers"))
                         
                         .route("USER-DETAILS",r->r.path("/userOperations/getUsers")
                         		.and().method(HttpMethod.GET)
-                                .uri("http://13.236.136.227:31130/api/user/getUsers"))
+                                .uri("http://54.206.61.156:31130/api/user/getUsers"))
                         
                         .route("USER-DETAILS",r->r.path("/userOperations/getUsers/{userid}")
                         		.and().method(HttpMethod.GET)
-                                .uri("http://13.236.136.227:31130/api/user/getUsers/{userid}"))
+                                .uri("http://54.206.61.156:31130/api/user/getUsers/{userid}"))
                         
                         .route("USER-DETAILS",r->r.path("/userOperations/getUsersWithPagination")
                         		.and().method(HttpMethod.GET)
-                                .uri("http://13.236.136.227:31130/api/user/getUsersByPagination"))
-                        
+                                .uri("http://54.206.61.156:31130/api/user/getUsersByPagination"))
                         
                         .build(); 
     	}
