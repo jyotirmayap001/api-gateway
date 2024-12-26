@@ -29,28 +29,28 @@ public class ApiGateway {
         	return routeLocatorBuilder.routes()
                         .route("USER-DETAILS",r->r.path("/userOperations/saveUsers")
                         		.and().method(HttpMethod.POST)
-                        		.filters(f-> f.rewritePath("/userOperations/saveUsers", "/"))
-                                .uri(hostIp+"/api/user/saveUsers"))
+                        		.filters(f-> f.rewritePath("/userOperations/saveUsers", "/api/user/saveUsers"))
+                                .uri(hostIp))
                         
                         .route("USER-DETAILS_MULTI_SAVE",r->r.path("/userOperations/saveMutipleUsers")
                         		.and().method(HttpMethod.POST)
-                        		.filters(f-> f.rewritePath("/userOperations/saveMutipleUsers", "/"))
-                                .uri(hostIp+"/api/user/saveMutipleUsers"))
+                        		.filters(f-> f.rewritePath("/userOperations/saveMutipleUsers", "/api/user/saveMutipleUsers"))
+                                .uri(hostIp))
                        
                         .route("USER-DETAILS_GET_USER",r->r.path("/userOperations/getUsers")
                         		.and().method(HttpMethod.GET)
-                        		.filters(f-> f.rewritePath("/userOperations/getUsers", "/"))
-                                .uri(hostIp+"/api/user/getUsers"))
+                        		.filters(f-> f.rewritePath("/userOperations/getUsers", "/api/user/getUsers"))
+                                .uri(hostIp))
                         
                         .route("USER-DETAILS_GET_SPECIFIED_USER",r->r.path("/userOperations/getUsers/{userid}")
                         		.and().method(HttpMethod.GET)
-                        		.filters(f-> f.rewritePath("/userOperations/getUsers/", "/"))
-                                .uri(hostIp+"/api/user/getUsers/"))
+                        		.filters(f-> f.rewritePath("/userOperations/getUsers/", "/api/user/getUsers/"))
+                                .uri(hostIp))
                         
                         .route("USER-DETAILS_WITH_PAGINATION",r->r.path("/userOperations/getUsersWithPagination")
                         		.and().method(HttpMethod.GET)
-                        		.filters(f-> f.rewritePath("/userOperations/getUsersWithPagination", "/"))
-                                .uri(hostIp+"/api/user/getUsersByPagination"))
+                        		.filters(f-> f.rewritePath("/userOperations/getUsersWithPagination", "/api/user/getUsersByPagination"))
+                                .uri(hostIp))
                         
                         .build(); 
     	}
