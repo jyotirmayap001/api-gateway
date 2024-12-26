@@ -1,5 +1,6 @@
 package com.jyoti.api.gateway;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -16,6 +17,9 @@ import org.springframework.web.server.ServerWebExchange;
 @EnableDiscoveryClient
 public class ApiGateway {
 
+	@Value("${server.host.ip}")
+	private String hostIp; 
+	
 	public static void main(String[] args) {
 		SpringApplication.run(ApiGateway.class, args);
 	}
@@ -25,23 +29,28 @@ public class ApiGateway {
         	return routeLocatorBuilder.routes()
                         .route("USER-DETAILS",r->r.path("/userOperations/saveUsers")
                         		.and().method(HttpMethod.POST)
-                                .uri("http://54.206.61.156:31130/api/user/saveUsers"))
+                        		.filters(f-> f.rewritePath("/userOperations/saveUsers", ""))
+                                .uri(hostIp+"/api/user/saveUsers"))
                         
                         .route("USER-DETAILS_MULTI_SAVE",r->r.path("/userOperations/saveMutipleUsers")
                         		.and().method(HttpMethod.POST)
-                                .uri("http://54.206.61.156:31130/api/user/saveMutipleUsers"))
-                        
+                        		.filters(f-> f.rewritePath("/userOperations/saveMutipleUsers", ""))
+                                .uri(hostIp+"/api/user/saveMutipleUsers"))
+                       
                         .route("USER-DETAILS_GET_USER",r->r.path("/userOperations/getUsers")
                         		.and().method(HttpMethod.GET)
-                                .uri("http://54.206.61.156:31130/api/user/getUsers"))
+                        		.filters(f-> f.rewritePath("/userOperations/getUsers", ""))
+                                .uri(hostIp+"/api/user/getUsers"))
                         
                         .route("USER-DETAILS_GET_SPECIFIED_USER",r->r.path("/userOperations/getUsers/{userid}")
                         		.and().method(HttpMethod.GET)
-                                .uri("http://54.206.61.156:31130/api/user/getUsers/"))
+                        		.filters(f-> f.rewritePath("/userOperations/getUsers/", ""))
+                                .uri(hostIp+"/api/user/getUsers/"))
                         
                         .route("USER-DETAILS_WITH_PAGINATION",r->r.path("/userOperations/getUsersWithPagination")
                         		.and().method(HttpMethod.GET)
-                                .uri("http://54.206.61.156:31130/api/user/getUsersByPagination"))
+                        		.filters(f-> f.rewritePath("/userOperations/getUsersWithPagination", ""))
+                                .uri(hostIp+"/api/user/getUsersByPagination"))
                         
                         .build(); 
     	}
